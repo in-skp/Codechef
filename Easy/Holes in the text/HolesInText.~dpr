@@ -1,0 +1,38 @@
+program HolesInText;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  TotalCases : integer;
+  HoleString : string;
+  i : integer;
+  arrOutput : array of integer;
+  Counter :integer;
+
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  Readln(TotalCases);
+  SetLength(arrOutput,TotalCases);
+  for i:=0 to TotalCases-1 do
+  begin
+    Readln(HoleString);
+    Counter := 0;
+    for i:=0 to Length(HoleString) do
+    begin
+      case HoleString[i] of
+        'A','D','O','P','Q','R' : Result := Result + 1;
+        'B' : Result := Result + 2;
+        else Result := Result + 0;
+      end;
+    end;
+    arrOutput[i] := GetHolesInText(HoleString);
+  end;
+  for i:=Low(arrOutput) to High(arrOutput) do
+  begin
+    Writeln(arrOutput[i]);
+  end;
+  //readln;
+end.

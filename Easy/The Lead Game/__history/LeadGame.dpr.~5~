@@ -1,0 +1,44 @@
+    program LeadGame;
+
+    {$APPTYPE CONSOLE}
+
+    uses
+    SysUtils;
+
+    var
+    NoOfRounds : LongInt;
+    arrScores : array[1..2] of array of LongInt;
+    i : LongInt;
+
+    procedure FindLeadGameWinner;
+    var
+    k, ko : LongInt;
+    Diff : LongInt;
+    MaxLead : LongInt;
+    begin
+    MaxLead := 0;
+    for k:=Low(arrScores[1]) to High(arrScores[1]) do
+    begin
+      Diff := Abs(arrScores[1,k] - arrScores[2,k]);
+      if Diff > MaxLead then
+      MaxLead := Diff;
+    end
+    if MaxLead1 > MaxLead2 then
+    writeln(1,' ',MaxLead1)
+    else
+    writeln(2,' ',MaxLead2)
+    end;
+
+
+    begin
+    { TODO -oUser -cConsole Main : Insert code here }
+    readln(NoOfRounds);
+    setlength(arrScores[1],NoOfRounds);
+    setlength(arrScores[2],NoOfRounds);
+    for i:=0 to NoOfRounds-1 do
+    begin
+    readln(arrScores[1,i],arrScores[2,i]);
+    end;
+    FindLeadGameWinner;
+    readln;
+    end.
